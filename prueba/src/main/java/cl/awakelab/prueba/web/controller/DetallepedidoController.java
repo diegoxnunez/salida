@@ -1,43 +1,39 @@
 package cl.awakelab.prueba.web.controller;
 
 import cl.awakelab.prueba.model.domain.dto.CamareroDTO;
-import cl.awakelab.prueba.web.service.CamareroService;
-import lombok.extern.slf4j.Slf4j;
+import cl.awakelab.prueba.model.domain.dto.DetallepedidoDTO;
+import cl.awakelab.prueba.web.service.DetallepedidoService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-@Slf4j
 @Controller
-@RequestMapping("/camarero")
-public class CamareroController {
-    private final CamareroService service;
+@RequestMapping("/detalle")
+public class DetallepedidoController {
+    private final DetallepedidoService service;
 
-    public CamareroController(CamareroService service) {
+    public DetallepedidoController(DetallepedidoService service) {
         this.service = service;
     }
 
     @GetMapping
-    public String findAll(Model model) {
-        var result = service.findAll();
-        log.info("result: " + result);
-
-        model.addAttribute("camareros", service.findAll());
-        return "camareroList";
+    public String findAll(Model model){
+        model.addAttribute("detalles", service.findAll());
+        return "detallepedidoList";
     }
 
     @PostMapping("/crear")
-    public ResponseEntity<CamareroDTO> create(@RequestBody CamareroDTO camareroDTO) {
-        return service.create(camareroDTO)
+    public ResponseEntity<DetallepedidoDTO> create(@RequestBody DetallepedidoDTO detallepedidoDTO) {
+        return service.create(detallepedidoDTO)
                 .map(t -> new ResponseEntity<>(t, HttpStatus.CREATED))
                 .orElse(new ResponseEntity<>(HttpStatus.CONFLICT));
     }
 
     @PatchMapping("/update")
-    public ResponseEntity<CamareroDTO> update(@RequestBody CamareroDTO camareroDTO){
-        return service.update(camareroDTO)
+    public ResponseEntity<DetallepedidoDTO> update(@RequestBody DetallepedidoDTO detallepedidoDTO){
+        return service.update(detallepedidoDTO)
                 .map(t -> new ResponseEntity<>(t, HttpStatus.OK))
                 .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
@@ -47,4 +43,3 @@ public class CamareroController {
         return new ResponseEntity<Boolean>(service.delete(camareroId), HttpStatus.OK);
     }
 }
-

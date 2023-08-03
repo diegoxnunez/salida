@@ -52,7 +52,12 @@ public class CamareroServiceImpl implements CamareroService {
     }
 
     @Override
-    public void delete(int id) {
-       repository.deleteById(id);
+    public boolean delete(int id) {
+        if (repository.existsById(id)){
+            repository.deleteById(id);
+            return true;
+        }
+
+        return false;
     }
 }
