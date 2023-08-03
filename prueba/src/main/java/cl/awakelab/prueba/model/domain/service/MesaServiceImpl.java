@@ -32,10 +32,10 @@ public class MesaServiceImpl implements MesaService {
     @Override
     public Optional<MesaDTO> create(MesaDTO mesaDTO) {
         return Optional.of(mapper.toMesaDTO(
-                repository.save(
-                        mapper.toMesaEntity(mesaDTO)
+                        repository.save(
+                                mapper.toMesaEntity(mesaDTO)
+                        )
                 )
-            )
         );
     }
 
