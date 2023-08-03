@@ -1,6 +1,6 @@
 package cl.awakelab.prueba.web.controller;
 
-import cl.awakelab.prueba.model.domain.dto.CamareroDTO;
+
 import cl.awakelab.prueba.model.domain.dto.DetallepedidoDTO;
 import cl.awakelab.prueba.web.service.DetallepedidoService;
 import org.springframework.http.HttpStatus;
@@ -38,8 +38,8 @@ public class DetallepedidoController {
                 .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
 
-    @DeleteMapping("/delete/{camareroId}")
-    public ResponseEntity<Boolean> delete(@PathVariable int camareroId){
-        return new ResponseEntity<Boolean>(service.delete(camareroId), HttpStatus.OK);
+    @DeleteMapping("/delete/{detalleId}")
+    public ResponseEntity<Boolean> delete(@PathVariable int detalleId){
+        return new ResponseEntity<Boolean>(service.delete(detalleId), HttpStatus.OK);
     }
 }
