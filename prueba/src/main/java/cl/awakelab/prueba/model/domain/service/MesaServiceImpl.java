@@ -55,7 +55,6 @@ public class MesaServiceImpl implements MesaService {
             repository.deleteById(id);
             return true;
         }
-
         return false;
     }
 }
