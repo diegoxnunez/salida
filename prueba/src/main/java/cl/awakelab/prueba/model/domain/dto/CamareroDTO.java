@@ -3,10 +3,12 @@ package cl.awakelab.prueba.model.domain.dto;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.Date;
+
 @NoArgsConstructor
-public @Data class CamareroDTO {
+@Data public class CamareroDTO {
     private int id;
     private String nombre;
     private int edad;
-    private Data fechainicio;
+    private Date fechainicio;
 }

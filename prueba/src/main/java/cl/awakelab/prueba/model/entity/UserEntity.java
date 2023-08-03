@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 @Entity
 @Table(name = "user")
 @NoArgsConstructor
-public @Data class UserEntity {
+@Data public class UserEntity {
     @Id
     private String username;
     private String password;

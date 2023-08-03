@@ -27,8 +27,8 @@
                 <tr th:each="camarero: ${camareros.get()}">
                     <td th:text="${camarero.getId()}"></td>
                     <td th:text="${camarero.getNombre()}"></td>
-                    <td th:text="${customer.getEdad()}"></td>
-                    <td th:text="${customer.getFechainicio()}"></td>
+                    <td th:text="${camarero.getEdad()}"></td>
+                    <td th:text="${camarero.getFechainicio()}"></td>
 
                 </tr>
                 </tbody>

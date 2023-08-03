@@ -21,7 +21,8 @@ public class CamareroServiceImpl implements CamareroService {
 
     @Override
     public Optional<List<CamareroDTO>> findAll() {
-        return Optional.of(mapper.toCamarero(repository.findAll()));
+        var result = repository.findAll();
+        return Optional.of(mapper.toCamarero(result));
     }
 
     @Override

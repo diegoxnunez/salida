@@ -25,6 +25,7 @@ public class SecurityConfig {
     }
     @Bean
     public UserDetailsService userDetailsService(){
+
         return new UserDetailsServiceImpl(repository);
     }
     @Bean
@@ -41,7 +42,7 @@ public class SecurityConfig {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception{
         http
                 .authorizeRequests()
-                .requestMatchers("/camarero").hasAuthority("ADMIN")
+                .requestMatchers("/camarero").permitAll()
                 .requestMatchers("/api/camarero").hasAuthority("ADMIN")
                 .and()
                 .httpBasic(Customizer.withDefaults())

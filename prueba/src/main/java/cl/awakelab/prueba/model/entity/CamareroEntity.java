@@ -4,16 +4,18 @@ import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.Date;
+
 @Entity
 @Table(name = "camarero")
 @NoArgsConstructor
-public @Data class CamareroEntity {
+@Data public class CamareroEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String nombre;
     private int edad;
-    @Column(name = "fecha_inicio")
-    private Data fechainicio;
+    @Column(name = "Fecha_Inicio")
+    private Date fechainicio;
 
 }
